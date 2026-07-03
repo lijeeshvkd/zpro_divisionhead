@@ -7,7 +7,7 @@ sap.ui.define([
     "sap/m/Label",
     "sap/m/library",
     "sap/m/TextArea",
-    "zpj/pro/sd/sk/zprorevisionhead/model/formatter",
+    "zpj/pro/sd/sk/zprodivisionhead/model/formatter",
     "sap/m/MessageBox",
     "sap/m/PDFViewer",
     "sap/ui/core/Fragment",
@@ -22,7 +22,7 @@ sap.ui.define([
         var ButtonType = mobileLibrary.ButtonType;
         var DialogType = mobileLibrary.DialogType;
 
-        return Controller.extend("zpj.pro.sd.sk.zprorevisionhead.controller.View2", {
+        return Controller.extend("zpj.pro.sd.sk.zprodivisionhead.controller.View2", {
             formatter: formatter,
             onInit: function () {
                 var oProductModel = new JSONModel();
@@ -177,7 +177,7 @@ sap.ui.define([
                 this._Posnr = pathIndex + 1;
 
                 if (!this._sourceFrag) {
-                    this._sourceFrag = sap.ui.xmlfragment("zpj.pro.sd.sk.zprorevisionhead.view.fragments.source", this);
+                    this._sourceFrag = sap.ui.xmlfragment("zpj.pro.sd.sk.zprodivisionhead.view.fragments.source", this);
                     this.getView().addDependent(this._sourceFrag);
                     this._CustomerCodeTemp = sap.ui.getCore().byId("idSLSourceValueHelp").clone();
                     this._oTemp = sap.ui.getCore().byId("idSLSourceValueHelp").clone();
@@ -527,7 +527,7 @@ sap.ui.define([
             onShowAttachmentsLinkPress: function () {
                 var that = this;
                 this.getViewSettingsDialog(
-                    "zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.attachmentPopUp"
+                    "zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.attachmentPopUp"
                 ).then(function (oViewSettingsDialog) {
                     oViewSettingsDialog.setModel(
                         that.getView().getModel("LocalJSONModelForAttachment"),
@@ -538,7 +538,7 @@ sap.ui.define([
             },
             onAttachmentClosePress: function () {
                 this.getViewSettingsDialog(
-                    "zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.attachmentPopUp"
+                    "zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.attachmentPopUp"
                 ).then(function (oViewSettingsDialog) {
                     oViewSettingsDialog.close();
                 });
@@ -626,7 +626,7 @@ sap.ui.define([
                             this.getView().setBusy(false);
                             if (Data.Nav_File_Upload.results.length > 0) {
                                 this.getView().byId("idV2OPSAttach").setVisible(false);
-                                this.getView().byId("idV2ITSAttachment").setVisible(false);
+                                // this.getView().byId("idV2ITSAttachment").setVisible(false);
                                 this.getView().byId("idShowAttachments").setVisible(true);
 
                                 var attachments = Data;

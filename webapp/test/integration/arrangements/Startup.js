@@ -14,7 +14,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-					name: "zpj.pro.sd.sk.zprorevisionhead",
+					name: "zpj.pro.sd.sk.zprodivisionhead",
 					async: true
 				},
 				hash: oOptions.hash,

@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="zpj.pro.sd.sk.zprorevisionhead.controller.View2"
+    controllerName="zpj.pro.sd.sk.zprodivisionhead.controller.View2"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core"
     xmlns:uxap="sap.uxap"
@@ -31,7 +31,7 @@
                 >
                     <core:Fragment
                         id="idFragment"
-                        fragmentName="zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.transactionDetails"
+                        fragmentName="zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.transactionDetails"
                         type="XML"
                     />
                 </IconTabFilter>
@@ -41,7 +41,7 @@
                     iconColor="Contrast"
                 >
                     <core:Fragment
-                        fragmentName="zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.customerHistory"
+                        fragmentName="zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.customerHistory"
                         type="XML"
                     />
                 </IconTabFilter>
@@ -51,7 +51,7 @@
                     iconColor="Contrast"
                 >
                     <core:Fragment
-                        fragmentName="zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.costDetails"
+                        fragmentName="zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.costDetails"
                         type="XML"
                     />
                 </IconTabFilter>
@@ -62,7 +62,7 @@
                     iconColor="Contrast"
                 >
                     <core:Fragment
-                        fragmentName="zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.regionDetails"
+                        fragmentName="zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.regionDetails"
                         type="XML"
                     />
                 </IconTabFilter>
@@ -72,7 +72,7 @@
                     iconColor="Contrast"
                 >
                     <core:Fragment
-                        fragmentName="zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.marginDetails"
+                        fragmentName="zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.marginDetails"
                         type="XML"
                     />
                 </IconTabFilter>
@@ -82,7 +82,7 @@
                     iconColor="Contrast"
                 >
                     <core:Fragment
-                        fragmentName="zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.compitatorsDetails"
+                        fragmentName="zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.compitatorsDetails"
                         type="XML"
                     />
                 </IconTabFilter>
@@ -90,7 +90,7 @@
         </IconTabBar>
 
         <core:Fragment
-            fragmentName="zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.productsDetails"
+            fragmentName="zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.productsDetails"
             type="XML"
         />
 
@@ -105,7 +105,7 @@
                 <VBox class="sapUiLargeMarginBeginEnd">
                     <core:Fragment
                         id="idV2FragAttach"
-                        fragmentName="zpj.pro.sd.sk.zprorevisionhead.view.fragments.View2.attachments"
+                        fragmentName="zpj.pro.sd.sk.zprodivisionhead.view.fragments.View2.attachments"
                         type="XML"
                     />
                 </VBox>

@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "zpj.pro.sd.sk.zprorevisionhead.view.",
+		viewNamespace: "zpj.pro.sd.sk.zprodivisionhead.view.",
 		autoWait: true
 	});
 });

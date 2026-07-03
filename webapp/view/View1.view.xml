@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:fb="sap.ui.comp.filterbar" xmlns:ui="sap.ui.table" controllerName="zpj.pro.sd.sk.zprorevisionhead.controller.View1">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:fb="sap.ui.comp.filterbar" xmlns:ui="sap.ui.table" controllerName="zpj.pro.sd.sk.zprodivisionhead.controller.View1">
     <Page class="sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer          sapUiResponsivePadding--floatingFooter">
         <content>
             <IconTabBar id="idIconTabBar" headerMode="Standard" stretchContentHeight="true" select="_onFilterSelect" class="sapUiResponsiveContentPadding sapUiLargeMarginBottom">

@@ -1,7 +1,7 @@
 {
   "_version": "1.58.0",
   "sap.app": {
-    "id": "zpj.pro.sd.sk.zprorevisionhead",
+    "id": "zpj.pro.sd.sk.zprodivisionhead",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -16,8 +16,8 @@
       "toolsId": "e7d74979-24fe-4cf4-80f4-dd0c55f50589"
     },
     "dataSources": {
-      "ZPAF_VH_APPROVAL_SRV": {
-        "uri": "/sap/opu/odata/sap/ZPAF_VH_APPROVAL_SRV/",
+      "ZPAF_DH_APPROVAL1_SRV": {
+        "uri": "/sap/opu/odata/sap/ZPAF_DH_APPROVAL1_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -93,12 +93,12 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "zpj.pro.sd.sk.zprorevisionhead.i18n.i18n"
+          "bundleName": "zpj.pro.sd.sk.zprodivisionhead.i18n.i18n"
         }
       },
       "": {
         "preload": true,
-        "dataSource": "ZPAF_VH_APPROVAL_SRV",
+        "dataSource": "ZPAF_DH_APPROVAL1_SRV",
         "settings": {
           "defaultBindingMode": "TwoWay",
           "defaultCountMode": "Inline",
@@ -155,7 +155,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "zpj.pro.sd.sk.zprorevisionhead.view",
+        "viewPath": "zpj.pro.sd.sk.zprodivisionhead.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -196,7 +196,7 @@
       }
     },
     "rootView": {
-      "viewName": "zpj.pro.sd.sk.zprorevisionhead.view.App",
+      "viewName": "zpj.pro.sd.sk.zprodivisionhead.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

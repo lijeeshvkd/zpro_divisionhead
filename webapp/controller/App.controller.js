@@ -5,7 +5,7 @@ sap.ui.define(
     function(BaseController) {
       "use strict";
   
-      return BaseController.extend("zpj.pro.sd.sk.zprorevisionhead.controller.App", {
+      return BaseController.extend("zpj.pro.sd.sk.zprodivisionhead.controller.App", {
         onInit: function() {
         }
       });

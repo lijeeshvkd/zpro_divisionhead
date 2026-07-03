@@ -1,14 +1,14 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "zpj/pro/sd/sk/zprorevisionhead/model/formatter",
+    "zpj/pro/sd/sk/zprodivisionhead/model/formatter",
     "sap/m/MessageBox",
     "sap/ui/model/Sorter",
     "sap/ui/core/Element",
   ], function (Controller, JSONModel, formatter, MessageBox, Sorter, Element) {
     "use strict";
 
-    return Controller.extend("zpj.pro.sd.sk.zprorevisionhead.controller.View1", {
+    return Controller.extend("zpj.pro.sd.sk.zprodivisionhead.controller.View1", {
         formatter: formatter,
 
         onInit: function () {
@@ -213,7 +213,7 @@ sap.ui.define([
         onSalesOfficeHelp: function () {
             if (!this.salesOfficeDialog) {
               this.salesOfficeDialog = sap.ui.xmlfragment(
-                "zpj.pro.sd.sk.zprorevisionhead.view.fragments.View1.salesOfficeF4",
+                "zpj.pro.sd.sk.zprodivisionhead.view.fragments.View1.salesOfficeF4",
                 this,
               );
               this.getView().addDependent(this.salesOfficeDialog);

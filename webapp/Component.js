@@ -5,12 +5,12 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "zpj/pro/sd/sk/zprorevisionhead/model/models"
+        "zpj/pro/sd/sk/zprodivisionhead/model/models"
     ],
     function (UIComponent, Device, models) {
         "use strict";
 
-        return UIComponent.extend("zpj.pro.sd.sk.zprorevisionhead.Component", {
+        return UIComponent.extend("zpj.pro.sd.sk.zprodivisionhead.Component", {
             metadata: {
                 manifest: "json"
             },
