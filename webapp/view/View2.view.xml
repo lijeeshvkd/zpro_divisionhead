@@ -116,6 +116,13 @@
             <Bar>
                 <contentRight>
                     <Button
+                        id="id.forward.Button"
+                        text="Forward"
+                        icon="sap-icon://forward"
+                        press=".onForward"
+                        ariaHasPopup="Dialog"
+                    />
+                    <Button
                         id="id.Approve.Button"
                         text="Reject"
                         press=".reject"

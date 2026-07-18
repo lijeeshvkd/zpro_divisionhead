@@ -87,75 +87,75 @@
                         <!-- Columns -->
                         <ui:columns>
                             <!-- PAF No -->
-                            <ui:Column id="Pafno" width="4rem" hAlign="End" sortProperty="Pafno">
+                            <ui:Column id="Pafno" width="auto" hAlign="End" sortProperty="Pafno">
                                 <Text text="PAF No"/>
                                 <ui:template>
                                     <Text text="{path:'JSONModelForTable&gt;Pafno', formatter:'.formatter.removeLeadingZeros'}"/>
                                 </ui:template>
                             </ui:Column>
                             <!-- Vertical -->
-                            <ui:Column width="5rem" hAlign="Center">
+                            <ui:Column width="auto" hAlign="Center">
                                 <Text text="Vertical"/>
                                 <ui:template>
                                     <Text text="{path:'JSONModelForTable&gt;Spart', formatter:'.formatter.getVertical'}"/>
                                 </ui:template>
                             </ui:Column>
                             <!-- Sales Office -->
-                            <ui:Column id="Soname" width="6rem" hAlign="End">
+                            <ui:Column id="Soname" width="auto" hAlign="End">
                                 <Text text="Sales Office"/>
                                 <ui:template>
                                     <Text text="{JSONModelForTable&gt;Soname}"/>
                                 </ui:template>
                             </ui:Column>
-                            <ui:Column id="Name" width="14rem" hAlign="Center">
+                            <ui:Column id="Name" width="auto" hAlign="Center">
                                 <Text text="Customer"/>
                                 <ui:template>
                                     <Text text="{JSONModelForTable&gt;Name}"/>
                                 </ui:template>
                             </ui:Column>
-                            <ui:Column id="Kunnr" width="6rem" hAlign="Center">
+                            <ui:Column id="Kunnr" width="auto" hAlign="Center">
                                 <Text text="Customer ID"/>
                                 <ui:template>
                                     <Text text="{JSONModelForTable&gt;Kunnr}"/>
                                 </ui:template>
                             </ui:Column>
-                            <ui:Column width="6rem" hAlign="Center" demandPopin="true">
+                            <ui:Column width="auto" hAlign="Center" demandPopin="true">
                                 <Text text="Order type"/>
                                 <ui:template>
                                     <Text text="{parts:['JSONModelForTable&gt;Vtweg'], formatter:'.formatter.getOrderType'}"/>
                                 </ui:template>
                             </ui:Column>
-                            <ui:Column width="6rem" hAlign="End" demandPopin="true">
+                            <ui:Column width="auto" hAlign="End" demandPopin="true">
                                 <Text text="Total Order"/>
                                 <ui:template>
                                     <Text text="{JSONModelForTable&gt;WtotalVol}"/>
                                 </ui:template>
                             </ui:Column>
-                            <ui:Column width="6rem" hAlign="End" demandPopin="true">
+                            <ui:Column width="auto" hAlign="End" demandPopin="true">
                                 <Text text="Current Order"/>
                                 <ui:template>
                                     <Text text="{JSONModelForTable&gt;WcurVolFt}"/>
                                 </ui:template>
                             </ui:Column>
-                            <ui:Column id="Erdat" width="6rem" hAlign="Center" demandPopin="true" sortProperty="Erdat">
+                            <ui:Column id="Erdat" width="auto" hAlign="Center" demandPopin="true" sortProperty="Erdat">
                                 <Text text="Request Date"/>
                                 <ui:template>
                                     <Text text="{parts:['JSONModelForTable&gt;Erdat'], formatter:'.formatter.getFormattedDate'}"/>
                                 </ui:template>
                             </ui:Column>
-                            <ui:Column id="Validity" width="4rem" hAlign="End" demandPopin="true">
+                            <ui:Column id="Validity" width="auto" hAlign="End" demandPopin="true">
                                 <Text text="Validity"/>
                                 <ui:template>
                                     <Text text="{path:'JSONModelForTable&gt;Validity', formatter:'.formatter.removeLeadingZeros'}"/>
                                 </ui:template>
                             </ui:Column>
-                            <ui:Column width="6rem" hAlign="End" demandPopin="true">
+                            <!-- <ui:Column width="6rem" hAlign="End" demandPopin="true">
                                 <Text text="GM%"/>
                                 <ui:template>
                                     <tnt:InfoLabel text="{JSONModelForTable&gt;Wgrossmargper} %" renderMode="Loose" colorScheme="{parts:['JSONModelForTable&gt;Wgrossmargper'], formatter:'.formatter.getGMColor'}"/>
                                 </ui:template>
-                            </ui:Column>
-                            <ui:Column width="6rem" hAlign="Center" demandPopin="true">
+                            </ui:Column> -->
+                            <ui:Column width="auto" hAlign="Center" demandPopin="true">
                                 <Text text="Status"/>
                                 <ui:template>
                                     <tnt:InfoLabel text="{parts:['JSONModelForTable&gt;Status'], formatter:'.formatter.getStatus'}" renderMode="Loose" colorScheme="{parts:['JSONModelForTable&gt;Status'], formatter:'.formatter.getStatusColor'}"/>

@@ -75,10 +75,12 @@ sap.ui.define([
 
                             this.getView().byId("id.Approve.Button").setVisible(false);
                             this.getView().byId("id.Reject.Button").setVisible(false);
+                            this.getView().byId("id.forward.Button").setVisible(false);
                         } else {
 
                             this.getView().byId("id.Approve.Button").setVisible(true);
                             this.getView().byId("id.Reject.Button").setVisible(true);
+                            this.getView().byId("id.forward.Button").setVisible(true);
                         }
                         // Grossmargper
                         // oData.NAV_VH_ITEM_PRODUCT.results
@@ -653,6 +655,15 @@ sap.ui.define([
                             );
                         }.bind(this),
                     });
+            },
+
+            onForward: function () {
+                var payload = {
+                    "Pafno": "",
+                    "Action": "FOR"
+                }
+
+                this._sendPayload(payload, "Forwarded");
             }
             //Close: Attach001
         });
