@@ -72,6 +72,9 @@
         <Label text="Category" design="Bold" />
         <tnt:InfoLabel width="90px" renderMode="Loose" text="{ parts: ['oRequestModel>/Category'], formatter: '.formatter.getCategoryStatusText' }" colorScheme="{ parts: ['oRequestModel>/Category'], formatter: '.formatter.getCategoryStatusColor' }" />
 
+        <Label text="Division" design="Bold" />
+        <Text text="{path:'oRequestModel>/Spart', formatter: '.formatter.getDivisionText'}" />
+
         <core:Title />
         <Label
             text="Discount"
@@ -146,6 +149,12 @@
                 text="Valid upto:{path:'oRequestModel>/Pafvto',  formatter: '.formatter.getFormattedDate' }"
             />
         </HBox>
+
+        <Label text="Created Date" design="Bold" />
+        <Text text="{path:'oRequestModel>/Erdat', formatter: '.formatter.getFormattedDate' }" />
+
+        <Label text="Created Time" design="Bold" />
+        <Text text="{path:'oRequestModel>/Erzet', formatter: '.formatter.getFormattedTime' }" />
         <!-- </VBox>
         </HBox> -->
     </forms:SimpleForm>

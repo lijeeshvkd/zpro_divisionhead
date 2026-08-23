@@ -30,9 +30,9 @@
                     <Label wrapping="true" text="Material Freight Groups" />
                 </Column>
 
-                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" >
+                <!-- <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" >
                     <Text text="Product" />
-                </Column>
+                </Column> -->
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
                     <Text text="Size" />
@@ -40,6 +40,16 @@
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" >
                     <Text text="Designs" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" 
+                    visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? true: false}" >
+                    <Text text="ORC(%)" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" 
+                    visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? false: true}" >
+                    <Text text="ORC(Box)" />
                 </Column>
 
                 <!-- <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" >
@@ -50,13 +60,41 @@
                     <Text text="Volume" />
                 </Column>
 
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" >
+                    <Text text="Quality" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
+                    <Text text="Part A/B/L" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
+                    <Text text="Total Volume" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
+                    <Text text="Current Volume" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
+                    <Text text="Avg Bill Price" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
+                    <Text text="Last Billed Price" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
+                    <Text text="Min Bill Price" />
+                </Column>
+
                 <Column hAlign="Center">
                     <Text text="Freight" />
                 </Column>
                 
-                <Column hAlign="Center">
+                <!-- <Column hAlign="Center">
                     <Text text="Revised freight" />
-                </Column>
+                </Column> -->
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
                     <Text text="Discount" />
@@ -66,9 +104,9 @@
                     <Text text="Net Ex Factory(Sqft)" />
                 </Column>
 
-                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
+                <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
                     <Text text="SVC/BP(Sqft)" />
-                </Column>
+                </Column> -->
 
                 <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" >
                     <Text text="BP Remarks" />
@@ -106,19 +144,32 @@
                 <ColumnListItem vAlign="Middle">
                     <cells>
                         <Text text="{ProductModel>Mfrgr}" />
-                        <Text text="{ProductModel>Prdgrp}" />
+                        <!-- <Text text="{ProductModel>Prdgrp}" /> -->
                         <Text text="{ProductModel>Szcm}" />
                         <Text text="{ProductModel>Design}" />
 
+                        <Text visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? true: false}" text="{ProductModel>Commboxp}" />
+
+                        <Text visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? false: true}" text="{ProductModel>Commbox}" />
+
                         <!-- <Text text="{ProductModel>Sname}" /> -->
                         <Text visible="false" text="{ProductModel>Volume}" />
+
+                        <Text text="{ProductModel>Zzprodh4}" />
+                        <Text text="{ProductModel>Mvgr5}" />
+                        <Text text="{ProductModel>Totalvolume}" />
+                        <Text text="{ProductModel>CurVolFt}" />
+                        <Text text="{ProductModel>AvgBill}" />
+                        <Text text="{ProductModel>LastBill}" />
+                        <Text text="{ProductModel>MinBill}" />
+
                         <Text text="{ProductModel>Frghtsqft}" />
-                        <Text text="{ProductModel>ApprovedFrightprice}" />
+                        <!-- <Text text="{ProductModel>ApprovedFrightprice}" /> -->
 
                         <!-- <Text text="{ProductModel>Discount}" />  -->
                         <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"  />
                         <Text text="{ProductModel>Netexsqft}" />
-                        <Text text="{ProductModel>Buyingpricesqft}" />
+                        <!-- <Text text="{ProductModel>Buyingpricesqft}" /> -->
                         <!-- <Text text="{ProductModel>Remark}" /> -->
                         <Text visible="false" text="{ProductModel>Grossmarg}" />
                         <Text visible="false" text="{ProductModel>Zvolumepft}" />
