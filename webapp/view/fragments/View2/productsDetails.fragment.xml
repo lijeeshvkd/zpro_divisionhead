@@ -77,15 +77,23 @@
                 </Column>
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
-                    <Text text="Avg Bill Price" />
+                    <Text text="Discount" />
+                </Column>
+
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
+                    <Text text="Net Ex Factory(Sqft)" />
                 </Column>
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
-                    <Text text="Last Billed Price" />
+                    <Text text="Avg Bill Price-L3M_Region" />
                 </Column>
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
-                    <Text text="Min Bill Price" />
+                    <Text text="Last Billed Price-L3M_Region" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
+                    <Text text="Min Bill Price-L3M_Region" />
                 </Column>
 
                 <Column hAlign="Center">
@@ -95,14 +103,6 @@
                 <!-- <Column hAlign="Center">
                     <Text text="Revised freight" />
                 </Column> -->
-
-                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
-                    <Text text="Discount" />
-                </Column>
-
-                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
-                    <Text text="Net Ex Factory(Sqft)" />
-                </Column>
 
                 <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
                     <Text text="SVC/BP(Sqft)" />
@@ -128,7 +128,7 @@
                     <Text text="Gross Margin(%)" />
                 </Column> -->
 
-                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" >
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="10rem">
                     <Text text="Remarks" />
                 </Column>
 
@@ -159,6 +159,8 @@
                         <Text text="{ProductModel>Mvgr5}" />
                         <Text text="{ProductModel>Totalvolume}" />
                         <Text text="{ProductModel>CurVolFt}" />
+                        <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"  />
+                        <Text text="{ProductModel>Netexsqft}" />
                         <Text text="{ProductModel>AvgBill}" />
                         <Text text="{ProductModel>LastBill}" />
                         <Text text="{ProductModel>MinBill}" />
@@ -167,15 +169,13 @@
                         <!-- <Text text="{ProductModel>ApprovedFrightprice}" /> -->
 
                         <!-- <Text text="{ProductModel>Discount}" />  -->
-                        <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"  />
-                        <Text text="{ProductModel>Netexsqft}" />
                         <!-- <Text text="{ProductModel>Buyingpricesqft}" /> -->
                         <!-- <Text text="{ProductModel>Remark}" /> -->
                         <Text visible="false" text="{ProductModel>Grossmarg}" />
                         <Text visible="false" text="{ProductModel>Zvolumepft}" />
                         <!-- <Text text="{path:'ProductModel>ApprovedBuyingprice'}" /> -->
                         <!-- <Text text="{path:'ProductModel>Grossmargper'}" /> -->
-                        <Text text="{path:'ProductModel>Sbremark'}" />
+                        <TextArea value="{ProductModel>DhRemarkItem}" liveChange="onSbremarkTextAreaLiveChange" />
                         <!-- Start: Remarkcol001 -->
                         <!-- <Text text="{path:'ProductModel>Premark'}" /> -->
                         <!-- End: Remarkcol001 -->

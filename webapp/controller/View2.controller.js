@@ -411,7 +411,8 @@ sap.ui.define([
 
                 var payload = {
                     "Pafno": "",
-                    "Action": "REJECT"
+                    "Action": "REJECT",
+                    "NAV_VH_ITEM_PRODUCT": []
                 }
                 this._sendPayload(payload, "Rejected");
             },
@@ -460,7 +461,8 @@ sap.ui.define([
                 // this.oRejectDialog.open();
                 var payload = {
                     "Pafno": "",
-                    "Action": "ACCEPT"
+                    "Action": "ACCEPT",
+                    "NAV_VH_ITEM_PRODUCT": []
                 }
 
                 this._sendPayload(payload, "Approved");
@@ -469,6 +471,7 @@ sap.ui.define([
             _sendPayload: function (payload, sAction) {
 
                 payload.Pafno = this.getView().getModel("oRequestModel").getData().Pafno;
+                payload.NAV_VH_ITEM_PRODUCT = this.getView().getModel("ProductModel").getData() || [];
 
                 //   ProductModel 
 
@@ -660,7 +663,8 @@ sap.ui.define([
             onForward: function () {
                 var payload = {
                     "Pafno": "",
-                    "Action": "FOR"
+                    "Action": "FOR",
+                    "NAV_VH_ITEM_PRODUCT": []
                 }
 
                 this._sendPayload(payload, "Forwarded");

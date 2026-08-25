@@ -75,6 +75,9 @@
         <Label text="Division" design="Bold" />
         <Text text="{path:'oRequestModel>/Spart', formatter: '.formatter.getDivisionText'}" />
 
+        <Label text="Project Name and Address" design="Bold" />
+        <Text text="{oRequestModel>/Proj}" />
+
         <core:Title />
         <Label
             text="Discount"
@@ -155,6 +158,9 @@
 
         <Label text="Created Time" design="Bold" />
         <Text text="{path:'oRequestModel>/Erzet', formatter: '.formatter.getFormattedTime' }" />
+
+        <Label text="Project Specifier name and Address" design="Bold" />
+        <Text text="{oRequestModel>/Spec}" />
         <!-- </VBox>
         </HBox> -->
     </forms:SimpleForm>
