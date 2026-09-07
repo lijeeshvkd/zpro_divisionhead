@@ -71,7 +71,9 @@ sap.ui.define([
                     success: function (oData) {
                         var oModel = this.getView().getModel("oRequestModel");
 
-                        if (oData.Status === 'A' || oData.Status === 'R') {
+                        var sFieldRole = String(oData.Role || '').trim().toUpperCase();
+                        if (oData.Status === 'A' || oData.Status === 'R' ||
+                            sFieldRole === 'PMG' || sFieldRole === 'VH' || sFieldRole === 'ED' || sFieldRole === 'NSH') {
 
                             this.getView().byId("id.Approve.Button").setVisible(false);
                             this.getView().byId("id.Reject.Button").setVisible(false);

@@ -156,6 +156,12 @@
                                 </ui:template>
                             </ui:Column> -->
                             <ui:Column width="auto" hAlign="Center" demandPopin="true">
+                                <Text text="Pending At"/>
+                                <ui:template>
+                                    <Text text="{JSONModelForTable&gt;Role}"/>
+                                </ui:template>
+                            </ui:Column>
+                            <ui:Column width="auto" hAlign="Center" demandPopin="true">
                                 <Text text="Status"/>
                                 <ui:template>
                                     <tnt:InfoLabel text="{parts:['JSONModelForTable&gt;Status'], formatter:'.formatter.getStatus'}" renderMode="Loose" colorScheme="{parts:['JSONModelForTable&gt;Status'], formatter:'.formatter.getStatusColor'}"/>

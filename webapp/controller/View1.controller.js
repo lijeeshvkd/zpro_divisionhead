@@ -18,10 +18,11 @@ sap.ui.define([
 
         _onRouteMatched: function (oEvent) {
           var routeId = oEvent.getParameter("arguments").ID;
-          if (routeId === "Page1" || routeId === undefined || routeId === "") {
-            this.onFilterBarClear();
-            this.onSearch();
-          }
+          // if (routeId === "Page1" || routeId === undefined || routeId === "") {
+          //   this.onFilterBarClear();
+          //   this.onSearch();
+          // }
+          this.onSearch();
         },
 
         _getRequestData: function (statusKey, countType) {

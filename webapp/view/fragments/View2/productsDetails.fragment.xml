@@ -89,7 +89,7 @@
                 </Column>
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
-                    <Text text="Last Billed Price-L3M_Region" />
+                    <Text text="Last Billed Price-L3M_Dealer" />
                 </Column>
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
@@ -175,7 +175,8 @@
                         <Text visible="false" text="{ProductModel>Zvolumepft}" />
                         <!-- <Text text="{path:'ProductModel>ApprovedBuyingprice'}" /> -->
                         <!-- <Text text="{path:'ProductModel>Grossmargper'}" /> -->
-                        <TextArea value="{ProductModel>DhRemarkItem}" liveChange="onSbremarkTextAreaLiveChange" />
+                        <TextArea value="{ProductModel>DhRemarkItem}" liveChange="onSbremarkTextAreaLiveChange"
+                            editable="{= ${oRequestModel>/Status} === 'P' &amp;&amp; ${oRequestModel>/Role} !== 'PMG' &amp;&amp; ${oRequestModel>/Role} !== 'VH' &amp;&amp; ${oRequestModel>/Role} !== 'ED' &amp;&amp; ${oRequestModel>/Role} !== 'NSH' }" />
                         <!-- Start: Remarkcol001 -->
                         <!-- <Text text="{path:'ProductModel>Premark'}" /> -->
                         <!-- End: Remarkcol001 -->
