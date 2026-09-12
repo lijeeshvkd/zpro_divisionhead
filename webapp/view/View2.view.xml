@@ -113,7 +113,7 @@
         </Panel>
 
         <footer>
-            <Bar>
+            <Bar visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; ${DetailModel>/isGenerated} === true ? true : false }" >
                 <contentRight>
                     <Button
                         id="id.forward.Button"

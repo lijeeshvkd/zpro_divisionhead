@@ -136,21 +136,18 @@
         <Label
             text="Validity(Days)"
             design="Bold"
-            required="true"
         />
         <HBox>
-            <Input
+            <!-- <Input
                 id="id.validity.Input"
                 value="{path:'oRequestModel>/Validity', formatter:'.formatter.removeLeadingZeros'}"
                 width="25%"
                 valueState="Information"
                 valueStateText="You can change Validity"
                 editable="false"
-            />
-
-            <Text
-                text="Valid upto:{path:'oRequestModel>/Pafvto',  formatter: '.formatter.getFormattedDate' }"
-            />
+            /> -->
+            <Text text="{path:'oRequestModel>/Validity', formatter:'.formatter.removeLeadingZeros'}" />
+            <Text class="sapUiTinyMarginBegin" text="Valid upto:{path:'oRequestModel>/Pafvto',  formatter: '.formatter.getFormattedDate' }" />
         </HBox>
 
         <Label text="Created Date" design="Bold" />
