@@ -23,6 +23,10 @@
                         press="onShowAttachmentsLinkPress"
                     />
                     <!-- End: Attach001 -->
+                    <ToolbarSpacer />
+                
+                    <Button text="Generate" icon="sap-icon://cause" press="onGenerate" type="Attention"
+                        visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
                 </Toolbar>
             </headerToolbar>
             <columns>
@@ -76,8 +80,14 @@
                     <Text text="Current Volume" />
                 </Column>
 
-                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
-                    <Text text="Discount" />
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" 
+                    visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? true: false}" >
+                    <Text text="Discount(%)" />
+                </Column>
+
+                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" 
+                    visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? false: true}" >
+                    <Text text="Discount(Box)" />
                 </Column>
 
                 <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
@@ -89,7 +99,7 @@
                 </Column>
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
-                    <Text text="Last Billed Price-L3M_Region" />
+                    <Text text="Last Billed Price-L3M_Dealer" />
                 </Column>
 
                 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" >
@@ -99,18 +109,6 @@
                 <Column hAlign="Center">
                     <Text text="Freight" />
                 </Column>
-                
-                <!-- <Column hAlign="Center">
-                    <Text text="Revised freight" />
-                </Column> -->
-
-                <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
-                    <Text text="SVC/BP(Sqft)" />
-                </Column> -->
-
-                <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" >
-                    <Text text="BP Remarks" />
-                </Column> -->
 
                 <Column minScreenWidth="Desktop" demandPopin="true"  hAlign="Center" visible="false" >
                     <Text text="Gross Margin" />
@@ -120,23 +118,9 @@
                     <Text text="Volume(Sqft In Lakhs)" />
                 </Column>
 
-                <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" >
-                    <Text text="Revised BP(Sqft)" />
-                </Column> -->
-
-                <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" >
-                    <Text text="Gross Margin(%)" />
-                </Column> -->
-
                 <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="10rem">
                     <Text text="Remarks" />
                 </Column>
-
-                <!-- Start: Remarkcol001 -->
-                <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" >
-                    <Text text="PMG Remarks" />
-                </Column> -->
-                <!-- End: Remarkcol001 -->
 
             </columns>
 
@@ -144,41 +128,55 @@
                 <ColumnListItem vAlign="Middle">
                     <cells>
                         <Text text="{ProductModel>Mfrgr}" />
-                        <!-- <Text text="{ProductModel>Prdgrp}" /> -->
                         <Text text="{ProductModel>Szcm}" />
                         <Text text="{ProductModel>Design}" />
 
-                        <Text visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? true: false}" text="{ProductModel>Commboxp}" />
+                        <VBox visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? true: false}">
+                            <Input value="{ProductModel>Commboxp}" change="onORCInputChange"
+                                visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
+                            <Text text="{ProductModel>Commboxp}" 
+                                visible="{= ${oRequestModel>/Status} !== 'P' || (${oRequestModel>/Role} !== 'DH' &amp;&amp; ${oRequestModel>/Role} !== '') }" />
+                        </VBox>
+                        
+                        <VBox visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? false: true}">
+                            <Input value="{ProductModel>Commbox}" change="onORCInputChange"
+                                visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
+                            <Text text="{ProductModel>Commbox}" 
+                                visible="{= ${oRequestModel>/Status} !== 'P' || (${oRequestModel>/Role} !== 'DH' &amp;&amp; ${oRequestModel>/Role} !== '') }" />
+                        </VBox>
 
-                        <Text visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? false: true}" text="{ProductModel>Commbox}" />
-
-                        <!-- <Text text="{ProductModel>Sname}" /> -->
                         <Text visible="false" text="{ProductModel>Volume}" />
 
                         <Text text="{ProductModel>Zzprodh4}" />
                         <Text text="{ProductModel>Mvgr5}" />
                         <Text text="{ProductModel>Totalvolume}" />
                         <Text text="{ProductModel>CurVolFt}" />
-                        <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"  />
+                        <VBox visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? true: false}">
+                            <Input value="{ProductModel>Discount}" change="onORCInputChange"
+                                visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
+                            <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"
+                                visible="{= ${oRequestModel>/Status} !== 'P' || (${oRequestModel>/Role} !== 'DH' &amp;&amp; ${oRequestModel>/Role} !== '') }" />
+                        </VBox>
+
+                        <VBox visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? false: true}">
+                            <Input value="{ProductModel>Discount}" change="onORCInputChange"
+                                visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
+                            <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"
+                                visible="{= ${oRequestModel>/Status} !== 'P' || (${oRequestModel>/Role} !== 'DH' &amp;&amp; ${oRequestModel>/Role} !== '') }" />
+                        </VBox>
+
                         <Text text="{ProductModel>Netexsqft}" />
                         <Text text="{ProductModel>AvgBill}" />
                         <Text text="{ProductModel>LastBill}" />
                         <Text text="{ProductModel>MinBill}" />
 
                         <Text text="{ProductModel>Frghtsqft}" />
-                        <!-- <Text text="{ProductModel>ApprovedFrightprice}" /> -->
 
-                        <!-- <Text text="{ProductModel>Discount}" />  -->
-                        <!-- <Text text="{ProductModel>Buyingpricesqft}" /> -->
-                        <!-- <Text text="{ProductModel>Remark}" /> -->
                         <Text visible="false" text="{ProductModel>Grossmarg}" />
                         <Text visible="false" text="{ProductModel>Zvolumepft}" />
-                        <!-- <Text text="{path:'ProductModel>ApprovedBuyingprice'}" /> -->
-                        <!-- <Text text="{path:'ProductModel>Grossmargper'}" /> -->
-                        <TextArea value="{ProductModel>DhRemarkItem}" liveChange="onSbremarkTextAreaLiveChange" />
-                        <!-- Start: Remarkcol001 -->
-                        <!-- <Text text="{path:'ProductModel>Premark'}" /> -->
-                        <!-- End: Remarkcol001 -->
+                        <TextArea value="{ProductModel>DhRemarkItem}" liveChange="onSbremarkTextAreaLiveChange"
+                            editable="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
+    
                     </cells>
                 </ColumnListItem>
             </items>
