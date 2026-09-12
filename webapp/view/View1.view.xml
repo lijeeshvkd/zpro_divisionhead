@@ -9,7 +9,7 @@
                     <IconTabFilter icon="sap-icon://accept" iconColor="Positive" text="Approved" key="Approved" count="{count&gt;/Approved}"/>
                     <IconTabFilter icon="sap-icon://decline" iconColor="Critical" text="Rejected" key="Rejected" count="{count&gt;/Rejected}"/>
                     <IconTabFilter icon="sap-icon://fob-watch" iconColor="Critical" text="Delayed" key="Delayed" count="{count&gt;/Delayed}" visible="false"/>
-                    <IconTabFilter icon="sap-icon://delete" iconColor="Negative" text="Deleted" key="Deleted" count="{count&gt;/Deleted}"/>
+                    <IconTabFilter icon="sap-icon://delete" iconColor="Negative" text="Deleted" key="Deleted" count="{count&gt;/Deleted}" visible="false"/>
                 </items>
                 <content>
                     <fb:FilterBar id="id.FilterBar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" showFilterConfiguration="false" clear="onFilterBarClear" showClearOnFB="true">
@@ -57,6 +57,15 @@
                             <fb:FilterGroupItem name="PafNo" label="Paf No" groupName="Group1" visibleInFilterBar="true">
                                 <fb:control>
                                     <Input id="id.PafNo.Input" placeholder="PAF No." />
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem name="Role" label="Role" groupName="Group1" visibleInFilterBar="true" mandatory="false" visible="true">
+                                <fb:control>
+                                    <ComboBox id="id.Role.ComboBox" selectedKey="">
+                                        <core:Item key="PMG" text="PMG"/>
+                                        <core:Item key="NSH" text="NSH"/>
+                                        <core:Item key="ED" text="ED"/>
+                                    </ComboBox>
                                 </fb:control>
                             </fb:FilterGroupItem>
                             <fb:FilterGroupItem name="date" label="Date" groupName="Group1" visibleInFilterBar="true">
