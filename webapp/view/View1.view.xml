@@ -62,6 +62,7 @@
                             <fb:FilterGroupItem name="Role" label="Role" groupName="Group1" visibleInFilterBar="true" mandatory="false" visible="true">
                                 <fb:control>
                                     <ComboBox id="id.Role.ComboBox" selectedKey="">
+                                        <core:Item key="DH" text="DH"/>
                                         <core:Item key="PMG" text="PMG"/>
                                         <core:Item key="NSH" text="NSH"/>
                                         <core:Item key="ED" text="ED"/>
