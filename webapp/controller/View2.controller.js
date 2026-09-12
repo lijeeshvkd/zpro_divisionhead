@@ -529,6 +529,12 @@ sap.ui.define([
 
                 this.getOwnerComponent().getModel().create('/ZPAF_VH_HEADERSet', payload, {
                     success: function (oData, response) {
+                        var oProductModel = this.getView().getModel("ProductModel");
+                        if (oData.NAV_VH_ITEM_PRODUCT && oData.NAV_VH_ITEM_PRODUCT.results) {
+                            oProductModel.setData(oData.NAV_VH_ITEM_PRODUCT.results);
+                            oProductModel.refresh(true);
+                        }
+
                         this.getView().getModel("DetailModel").setProperty("/isGenerated", true);
                         MessageBox.success("PAF " + sAction + " Successfully", {
                             actions: [sap.m.MessageBox.Action.OK],

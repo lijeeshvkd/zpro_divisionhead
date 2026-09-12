@@ -103,6 +103,13 @@ sap.ui.define([
                     response.results = [];
                   }
                 }
+
+                if (this.roleKey) {
+                  response.results = response.results.filter(function (result) {
+                    return String(result.Role || '').trim().toUpperCase() === this.roleKey.toUpperCase();
+                  }.bind(this));
+                }
+
                 this.getView().setBusy(false);
                 if (countType === "count") {
                   switch (statusKey) {
@@ -148,12 +155,13 @@ sap.ui.define([
           this.salesOfficeKey = this.getView().byId("id.SalesOffice.Input").getValue();
           this.divisionKey = this.getView().byId("id.Division.ComboBox").getSelectedKey();
           this.pafNumberValue = this.getView().byId("id.PafNo.Input").getValue();
+          this.roleKey = this.getView().byId("id.Role.ComboBox").getSelectedKey();
           this.getView().byId("idIconTabBar").setSelectedKey("All");
           this.getView().byId("id.orderNumber.Input").setValue("");
           this._getRequestData("P", "count");
           this._getRequestData("A", "count");
           this._getRequestData("R", "count");
-          this._getRequestData("DL", "count");
+          // this._getRequestData("DL", "count");
           this._getRequestData("", "count");
           this._getRequestData("", "tableData");
         },
@@ -162,10 +170,12 @@ sap.ui.define([
           this.getView().byId("id.SalesOffice.Input").setValue("");
           this.getView().byId("id.Division.ComboBox").setSelectedKey("");
           this.getView().byId("id.PafNo.Input").setValue("");
+          this.getView().byId("id.Role.ComboBox").setSelectedKey("");
           this.getView().getModel("dateRange").setProperty("/start", "");
           this.getView().getModel("dateRange").setProperty("/end", "");
           this.divisionKey = "";
           this.pafNumberValue = "";
+          this.roleKey = "";
         },
 
         _onFilterSelect: function (oEvent) {
