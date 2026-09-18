@@ -158,14 +158,14 @@
                         <VBox visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? true: false}">
                             <Input value="{ProductModel>Discount}" change="onORCInputChange"
                                 visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
-                            <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"
+                            <Text text="{ProductModel>Discount}"
                                 visible="{= ${oRequestModel>/Status} !== 'P' || (${oRequestModel>/Role} !== 'DH' &amp;&amp; ${oRequestModel>/Role} !== '') }" />
                         </VBox>
 
                         <VBox visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? false: true}">
                             <Input value="{ProductModel>Discountb}" change="onORCInputChange"
                                 visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
-                            <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"
+                            <Text text="{ProductModel>Discountb}"
                                 visible="{= ${oRequestModel>/Status} !== 'P' || (${oRequestModel>/Role} !== 'DH' &amp;&amp; ${oRequestModel>/Role} !== '') }" />
                         </VBox>
                         <Text text="{ProductModel>Exfacft}" />
