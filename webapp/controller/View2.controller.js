@@ -58,6 +58,8 @@ sap.ui.define([
                     }
 
                 }
+                var oDetailModel = this.getView().getModel("DetailModel");
+                oDetailModel.setProperty("/isGenerated", false);
             },
 
             getRequestDetails: function (pafID) {

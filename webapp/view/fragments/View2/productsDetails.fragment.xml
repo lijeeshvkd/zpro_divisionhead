@@ -91,6 +91,10 @@
                 </Column>
 
                 <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
+                    <Text text="Ex Factory" />
+                </Column>
+
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="7rem" >
                     <Text text="Net Ex Factory(Sqft)" />
                 </Column>
 
@@ -106,9 +110,9 @@
                     <Text text="Min Bill Price-L3M_Region" />
                 </Column>
 
-                <Column hAlign="Center">
+                <!-- <Column hAlign="Center">
                     <Text text="Freight" />
-                </Column>
+                </Column> -->
 
                 <Column minScreenWidth="Desktop" demandPopin="true"  hAlign="Center" visible="false" >
                     <Text text="Gross Margin" />
@@ -159,18 +163,18 @@
                         </VBox>
 
                         <VBox visible="{=${oRequestModel>/Vtweg} === '15' || ${oRequestModel>/Vtweg} === '19' || ${oRequestModel>/Vtweg} === '25' || ${oRequestModel>/Vtweg} === '29'  ? false: true}">
-                            <Input value="{ProductModel>Discount}" change="onORCInputChange"
+                            <Input value="{ProductModel>Discountb}" change="onORCInputChange"
                                 visible="{= ${oRequestModel>/Status} === 'P' &amp;&amp; (${oRequestModel>/Role} === 'DH' || ${oRequestModel>/Role} === '') }" />
                             <Text text="{parts:['ProductModel>Discount', 'ProductModel>Discountb'], formatter:'.formatter.getDiscount' }"
                                 visible="{= ${oRequestModel>/Status} !== 'P' || (${oRequestModel>/Role} !== 'DH' &amp;&amp; ${oRequestModel>/Role} !== '') }" />
                         </VBox>
-
+                        <Text text="{ProductModel>Exfacft}" />
                         <Text text="{ProductModel>Netexsqft}" />
                         <Text text="{ProductModel>AvgBill}" />
                         <Text text="{ProductModel>LastBill}" />
                         <Text text="{ProductModel>MinBill}" />
 
-                        <Text text="{ProductModel>Frghtsqft}" />
+                        <!-- <Text text="{ProductModel>Frghtsqft}" /> -->
 
                         <Text visible="false" text="{ProductModel>Grossmarg}" />
                         <Text visible="false" text="{ProductModel>Zvolumepft}" />

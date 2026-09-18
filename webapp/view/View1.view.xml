@@ -14,9 +14,9 @@
                 <content>
                     <fb:FilterBar id="id.FilterBar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" showFilterConfiguration="false" clear="onFilterBarClear" showClearOnFB="true">
                         <fb:filterGroupItems>
-                            <fb:FilterGroupItem name="SalesOffice" label="Sales Office" groupName="Group1" visibleInFilterBar="true">
+                            <fb:FilterGroupItem name="SalesOffice" label="Sales Office" groupName="Group1" visibleInFilterBar="true" mandatory="true">
                                 <fb:control>
-                                    <Input id="id.SalesOffice.Input" placeholder="Sales Office" submit="onSearch" showValueHelp="true" valueHelpRequest="onSalesOfficeHelp" change="onSalesOfficeInputSubmit" textFormatMode="ValueKey" showSuggestion="true" showTableSuggestionValueHelp="false" suggest=".onSuggest" suggestionRows="{JSONModelForSuggest&gt;/}" suggestionItemSelected="onSalesOfficeSuggestionSelect">
+                                    <Input id="id.SalesOffice.Input" placeholder="Sales Office" required="true" submit="onSearch" showValueHelp="true" valueHelpRequest="onSalesOfficeHelp" change="onSalesOfficeInputSubmit" textFormatMode="ValueKey" showSuggestion="true" showTableSuggestionValueHelp="false" suggest=".onSuggest" suggestionRows="{JSONModelForSuggest&gt;/}" suggestionItemSelected="onSalesOfficeSuggestionSelect">
                                         <suggestionColumns>
                                             <Column popinDisplay="Inline" demandPopin="true">
                                                 <Label text="Sales Office Code"/>
@@ -32,6 +32,13 @@
                                             </ColumnListItem>
                                         </suggestionRows>
                                     </Input>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem name="date" label="Date" groupName="Group1" visibleInFilterBar="true" mandatory="true">
+                                <fb:control>
+                                    <!-- New -->
+                                    <DateRangeSelection id="id.Date.Range" required="true" value="{     'type': 'sap.ui.model.type.DateInterval',     'formatOptions': {      'pattern': 'dd/MM/YYYY'      },     'parts': [      {       'type': 'sap.ui.model.type.Date',       'path': 'dateRange&gt;/start'      },      {       'type': 'sap.ui.model.type.Date',       'path': 'dateRange&gt;/end'      }     ]    }"/>
+                                    <!-- End: Date001 -->
                                 </fb:control>
                             </fb:FilterGroupItem>
                             <fb:FilterGroupItem name="Status" label="Status" groupName="Group1" visibleInFilterBar="true" mandatory="true" visible="false">
@@ -67,13 +74,6 @@
                                         <core:Item key="NSH" text="NSH"/>
                                         <core:Item key="ED" text="ED"/>
                                     </ComboBox>
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <fb:FilterGroupItem name="date" label="Date" groupName="Group1" visibleInFilterBar="true">
-                                <fb:control>
-                                    <!-- New -->
-                                    <DateRangeSelection value="{     'type': 'sap.ui.model.type.DateInterval',     'formatOptions': {      'pattern': 'dd/MM/YYYY'     },     'parts': [      {       'type': 'sap.ui.model.type.Date',       'path': 'dateRange&gt;/start'      },      {       'type': 'sap.ui.model.type.Date',       'path': 'dateRange&gt;/end'      }     ]    }"/>
-                                    <!-- End: Date001 -->
                                 </fb:control>
                             </fb:FilterGroupItem>
                         </fb:filterGroupItems>
