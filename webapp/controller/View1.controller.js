@@ -13,7 +13,11 @@ sap.ui.define([
 
         onInit: function () {
           this.getOwnerComponent().getRouter().attachRoutePatternMatched(this._onRouteMatched, this);
-          this.getView().setModel(new JSONModel({ start: "", end: "" }), "dateRange",);
+          var dNextDate = new Date(),
+              dStartDate = new Date();
+          dNextDate.setDate(dNextDate.getDate() + 1);
+          dStartDate.setDate(dStartDate.getDate() - 9);
+          this.getView().setModel(new JSONModel({ start: dStartDate, end: dNextDate }), "dateRange");
         },
 
         _onRouteMatched: function (oEvent) {
@@ -28,6 +32,7 @@ sap.ui.define([
         _getRequestData: function (statusKey, countType) {
           // DR change for filter
           var filters = [];
+          var oDateRangeModel = this.getView().getModel("dateRange");
           var statusFilter = new sap.ui.model.Filter(
             [
               new sap.ui.model.Filter(
@@ -79,30 +84,55 @@ sap.ui.define([
             );
             filters.push(pafNoFilter);
           }
+
+          if (oDateRangeModel.getProperty("/start") && oDateRangeModel.getProperty("/end")) {
+            var startDateFilter = new sap.ui.model.Filter(
+              [
+                new sap.ui.model.Filter(
+                  "Erdat",
+                  sap.ui.model.FilterOperator.GE,
+                  oDateRangeModel.getProperty("/start"),
+                ),
+              ],
+              false,
+            );
+            var endDateFilter = new sap.ui.model.Filter(
+              [
+                new sap.ui.model.Filter(
+                  "Erdat",
+                  sap.ui.model.FilterOperator.LE,
+                  oDateRangeModel.getProperty("/end"),
+                ),
+              ],
+              false,
+            );
+            filters.push(startDateFilter);
+            filters.push(endDateFilter);
+          } 
           this.getView().setBusy(true);
           this.getView().getModel().read(entitySetPath, {
               filters: filters,
               success: function (response) {
-                var startDate = this.getView().getModel("dateRange").getProperty("/start"),
-                    endDate = this.getView().getModel("dateRange").getProperty("/end");
+                // var startDate = this.getView().getModel("dateRange").getProperty("/start"),
+                //     endDate = this.getView().getModel("dateRange").getProperty("/end");
 
-                if (startDate && endDate) {
-                  var filteredResults = [];
-                  var hasDateMatch = false;
-                  for (let index = 0; index < response.results.length; index++) {
-                    if (response.results[index].Erdat >= startDate &&
-                      response.results[index].Erdat <= endDate) {
-                        filteredResults.push(response.results[index]);
-                        hasDateMatch = true;
-                    }
-                  }
+                // if (startDate && endDate) {
+                //   var filteredResults = [];
+                //   var hasDateMatch = false;
+                //   for (let index = 0; index < response.results.length; index++) {
+                //     if (response.results[index].Erdat >= startDate &&
+                //       response.results[index].Erdat <= endDate) {
+                //         filteredResults.push(response.results[index]);
+                //         hasDateMatch = true;
+                //     }
+                //   }
 
-                  if (hasDateMatch) {
-                    response.results = filteredResults;
-                  } else {
-                    response.results = [];
-                  }
-                }
+                //   if (hasDateMatch) {
+                //     response.results = filteredResults;
+                //   } else {
+                //     response.results = [];
+                //   }
+                // }
 
                 if (this.roleKey) {
                   response.results = response.results.filter(function (result) {
@@ -157,23 +187,7 @@ sap.ui.define([
           this.divisionKey = this.getView().byId("id.Division.ComboBox").getSelectedKey();
           this.pafNumberValue = this.getView().byId("id.PafNo.Input").getValue();
           this.roleKey = this.getView().byId("id.Role.ComboBox").getSelectedKey();
-          var oDateRange = this.getView().getModel("dateRange");
-          var sStartDate = oDateRange.getProperty("/start");
-          var sEndDate = oDateRange.getProperty("/end");
-
-          if (!this.salesOfficeKey) {
-            this.getView().byId("id.SalesOffice.Input").setValueState("Error");
-            MessageBox.error("Please enter Sales Office");
-            return;
-          }
-          if (!sStartDate || !sEndDate) {
-            this.getView().byId("id.Date.Range").setValueState("Error");
-            MessageBox.error("Please select a complete Date range");
-            return;
-          }
-
-          this.getView().byId("id.SalesOffice.Input").setValueState("None");
-          this.getView().byId("id.Date.Range").setValueState("None");
+        
           this.getView().byId("idIconTabBar").setSelectedKey("All");
           this.getView().byId("id.orderNumber.Input").setValue("");
           this._getRequestData("P", "count");
